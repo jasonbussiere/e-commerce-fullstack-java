@@ -1,0 +1,226 @@
+/* =============================================
+   Login/Signup pages
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.ac-card {
+    background: #f5f0eb;
+    border: 0.5px solid #cc1a1a;
+    border-radius: 2px;
+    padding: 2.5rem 2rem;
+    width: 360px;
+    position: relative;
+}
+
+/*Titre*/
+.ac-title {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #cc1a1a;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0 0.25rem;
+}
+
+.ac-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #1a1a1a;
+    font-weight: 500;
+    margin: 0 0 1.75rem;
+}
+
+/*Divider ligne*/
+.ac-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.75rem;
+}
+.ac-divider-line    { flex: 1; height: 0.5px; background: #cc1a1a; }
+/*for AC logo*/
+.ac-divider-logo { width: 10px; height: 10px; flex-shrink: 0; }
+
+/*Message erreur*/
+.ac-error {
+    background: #fce8e8;
+    border: 0.5px solid #cc1a1a;
+    border-radius: 2px;
+    padding: 10px 14px;
+    margin-bottom: 1.5rem;
+    font-size: 12px;
+    color: #8a0000;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/*Message succes*/
+.ac-success {
+    background: #eaf5ea;
+    border: 0.5px solid #2e7d32;
+    border-radius: 2px;
+    padding: 10px 14px;
+    margin-bottom: 1.5rem;
+    font-size: 12px;
+    color: #1b5e20;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/*Form*/
+.ac-field { margin-bottom: 1.25rem; }
+
+.ac-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #8a0000;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.ac-input {
+    width: 100%;
+    background: #ffffff;
+    border: 0.5px solid #cc1a1a;
+    border-radius: 2px;
+    color: #1a1a1a;
+    font-size: 14px;
+    padding: 10px 12px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+}
+.ac-input:focus {
+    border-color: #8a0000;
+    box-shadow: 0 0 0 2px rgba(140, 0, 0, 0.1);
+}
+.ac-input::placeholder { color: #bbb; }
+
+/*Bouton submit*/
+.ac-btn {
+    width: 100%;
+    max-width: 260px;
+    height: 50px;
+    background-color: #C00000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+    cursor: pointer;
+    transition:
+            background-color 0.2s ease,
+            transform 0.15s ease,
+            box-shadow 0.2s;
+    box-shadow: 0 3px 10px rgba(180,0,0,0.35);
+}
+.ac-btn:hover  {
+    background-color: #920101;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(180,0,0,0.45);
+}
+.ac-btn:active {
+    transform: translateY(0);
+    background-color: #7D0000;
+    box-shadow: 0 2px 6px rgba(180,0,0,0.3);
+}
+
+/*Bouton navigation*/
+.ac-nav {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin-top: 1.25rem;
+    letter-spacing: 0.5px;
+}
+.ac-nav a {
+    color: #cc1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.ac-nav a:hover { color: #8a0000; }
+
+/*Message decoratif*/
+.ac-motto {
+    text-align: center;
+    font-size: 11px;
+    color: #999;
+    letter-spacing: 2px;
+    margin-top: 1.5rem;
+    font-style: italic;
+}
+
+/* =============================================
+   dropdown langue
+   ============================================= */
+
+
+.dropbtn {
+    background-color: #C00000;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #920101;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #7D0000;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #e50914}
+
+
+
