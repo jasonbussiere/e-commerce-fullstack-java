@@ -17,3 +17,10 @@ L'accent a été mis sur la création d'une architecture backend solide et sur l
 * Server d'application: Apache Tomcat
 
 **🚀 Installation et Exécution Locale**
+**Schema :**
+<img width="1166" height="1079" alt="image" src="https://github.com/user-attachments/assets/db574ebc-9b19-4ea7-b5b5-f481ae967e79" />
+
+**Diagramme de class :**
+<img width="2136" height="1790" alt="image" src="https://github.com/user-attachments/assets/55ca3466-9081-4558-969d-51fc36af1508" />
+
+
