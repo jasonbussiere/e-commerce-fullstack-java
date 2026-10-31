@@ -5,10 +5,10 @@ Ce projet académiques est une plateforme de commerce électronique complète co
 L'accent a été mis sur la création d'une architecture backend solide et sur l'optimisation de la base de données garantissant ainsi une gestion fiable des données et une évolutivité de l'application.
 
 **✨Points clés et Architecture :**
-* **Architecture Structurée(MVC) :**Séparation stricte des responsabilité entre les modèles (données, les vues(JSP/HTML) et les contrôleurs(Servlets), facilitant la maintenance et l'évolution du code.
-* **Base de Données Optimisée :**Modélisation relationnel rigoureurse sous MariaDB, respectant la troisième forme normale(3NF) pour garantir l'intégrité absolue des données et éviter les redondances.
-* **Services Métier sur mesure :**Développement d'une logique backend personnalisée pour la persistance des sessions utilisateurs et la gestion dynamique du panier d'achats.
-* **Accessibilité et Internationalisation(18n) :**Implémentation d'un support multilingue dynamique, permettant à l'interface de s'adapter aux préférences linguistiques de l'utilisateur.
+* **Architecture Structurée(MVC) :** Séparation stricte des responsabilité entre les modèles (données, les vues(JSP/HTML) et les contrôleurs(Servlets), facilitant la maintenance et l'évolution du code.
+* **Base de Données Optimisée :** Modélisation relationnel rigoureurse sous MariaDB, respectant la troisième forme normale(3NF) pour garantir l'intégrité absolue des données et éviter les redondances.
+* **Services Métier sur mesure :** Développement d'une logique backend personnalisée pour la persistance des sessions utilisateurs et la gestion dynamique du panier d'achats.
+* **Accessibilité et Internationalisation(18n) :** Implémentation d'un support multilingue dynamique, permettant à l'interface de s'adapter aux préférences linguistiques de l'utilisateur.
 
 **🛠️ Technologies :**
 * Backend: Java, Jarkarta EE, Servlets
