@@ -1,27 +1,175 @@
-﻿**# 🛒 E-Commerce Full Stack (Jakarta EE)** <br>
+# E-Commerce Storefront | Java & Jakarta EE
 
-Ce projet académiques est une plateforme de commerce électronique complète construite avec l`écosystème Java/Jakarta EE. l'application gère l'ensemble du cycle d'achat, de la navigation des produits jusqu'à la gestion du panier et des sessions utilisateurs.
+A full-stack e-commerce web application built with Java, Jakarta EE, Maven, and MariaDB. The project simulates a digital storefront for video games, including product browsing, cart management, user authentication, and a multilingual storefront experience.
 
-L'accent a été mis sur la création d'une architecture backend solide et sur l'optimisation de la base de données garantissant ainsi une gestion fiable des données et une évolutivité de l'application.
+This project was developed to demonstrate backend architecture, database design, and MVC-based web development in a realistic business domain.
 
-**✨Points clés et Architecture :** <br>
-* **Architecture Structurée(MVC) :** Séparation stricte des responsabilité entre les modèles (données, les vues(JSP/HTML) et les contrôleurs(Servlets), facilitant la maintenance et l'évolution du code.
-* **Base de Données Optimisée :** Modélisation relationnel rigoureurse sous MariaDB, respectant la troisième forme normale(3NF) pour garantir l'intégrité absolue des données et éviter les redondances.
-* **Services Métier sur mesure :** Développement d'une logique backend personnalisée pour la persistance des sessions utilisateurs et la gestion dynamique du panier d'achats.
-* **Accessibilité et Internationalisation(18n) :** Implémentation d'un support multilingue dynamique, permettant à l'interface de s'adapter aux préférences linguistiques de l'utilisateur.
+## Overview
 
-**🛠️ Technologies :** <br>
-* Backend: Java, Jarkarta EE, Servlets
-* Frontend: HTML, JSP(JavaServer Pages)
-* Base de données: MariaDB cloud
-* Server d'application: Apache Tomcat
+The application is structured around a classic MVC pattern:
+- Model: domain entities and persistence logic
+- View: JSP pages and HTML/CSS front-end
+- Controller: Java Servlets handling requests and user actions
 
+The project includes a product catalog, shopping cart logic, account creation/login, localized UI text, and database-backed persistence for users, products, and cart data.
 
-**Schema :** <br>
-<img width="1166" height="1079" alt="image" src="https://github.com/user-attachments/assets/db574ebc-9b19-4ea7-b5b5-f481ae967e79" />
+## Features
 
-**Diagramme de class :**
-<img width="2136" height="1790" alt="image" src="https://github.com/user-attachments/assets/55ca3466-9081-4558-969d-51fc36af1508" />
+- Product catalog with game listings
+- Search and browsing experience for products
+- Shopping cart management
+- User sign-up and login flow
+- Session-based cart and account state
+- Checkout flow simulation
+- Database-backed persistence using MariaDB
+- Multilingual support for interface text
+- Tomcat deployment-ready Java web app
 
+## Tech Stack
 
+- Java 17
+- Jakarta Servlet API
+- JSP / JSTL
+- Maven
+- MariaDB
+- Apache Tomcat
+- HTML / CSS / JavaScript
 
+## Architecture
+
+The project follows a layered structure to separate responsibilities and improve maintainability:
+
+- Controllers: request handling and page navigation
+- Services: business logic and orchestration
+- DAOs / Persistence layer: database access and query execution
+- Models: domain objects
+- Views: JSP pages rendered to the user
+
+This design allows the application to scale in complexity while keeping the web layer and the persistence layer decoupled.
+
+## Project Structure
+
+```text
+.
+├── db/
+│   ├── schema.sql
+│   ├── data_users.sql
+│   └── data_videogames.sql
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── edu/tp/a11/assassinscreedstore/
+│   │   ├── resources/
+│   │   └── webapp/
+│   └── test/
+├── pom.xml
+├── mvnw
+├── mvnw.cmd
+├── README.md
+└── .gitignore
+```
+
+## Database Design
+
+The application uses MariaDB to persist key entities:
+
+- users
+- videogames
+- cart
+- cart_items
+
+The schema enforces relational integrity with foreign keys and unique constraints, and is designed to support the shopping workflow from catalog browsing to cart updates.
+
+## Screenshots
+
+### Application Schema
+
+![Schema](https://github.com/user-attachments/assets/db574ebc-9b19-4ea7-b5b5-f481ae967e79)
+
+### Class Diagram
+
+![Class Diagram](https://github.com/user-attachments/assets/55ca3466-9081-4558-969d-51fc36af1508)
+
+## Local Development Setup
+
+### Prerequisites
+
+- JDK 17+
+- Maven 3.8+
+- MariaDB
+- Apache Tomcat 10+
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/jasonbussiere/e-commerce-fullstack-java.git
+cd e-commerce-fullstack-java
+```
+
+### 2. Create the database
+
+Create a MariaDB database and import the schema file:
+
+```bash
+mysql -u <username> -p < db/schema.sql
+```
+
+### 3. Configure database access
+
+Create a configuration file based on the project settings used by the repository:
+
+```properties
+# src/main/resources/config.properties
+# Example values
+
+db.host=localhost
+db.name=ecommerce_db
+db.port=3306
+db.username=your_db_user
+db.password=your_db_password
+```
+
+The application loads this file at runtime to establish the JDBC connection.
+
+### 4. Build the project
+
+```bash
+./mvnw clean package
+```
+
+### 5. Run the application
+
+Deploy the generated WAR file to Tomcat or run it in a supported local servlet container.
+
+```bash
+./mvnw tomcat:run
+```
+
+If the project is being run in a Tomcat environment, deploy the WAR from the target directory.
+
+## Notes
+
+This project is designed as a Java web application that demonstrates practical skills in:
+
+- enterprise-style MVC architecture
+- connection pooling and database integration
+- user session management
+- secure form handling patterns
+- CRUD-style persistence for product and customer data
+- building a storefront experience from a relational model
+
+## Future Improvements
+
+Potential enhancements for a stronger portfolio version include:
+
+- adding automated tests
+- improving validation and error handling
+- introducing a REST API layer
+- adding admin product management
+- improving UI responsiveness and user experience
+- integrating CI/CD and deployment automation
+- adding a production-ready security layer
+
+## Summary
+
+This project reflects a strong foundation in Java-based web development and demonstrates the ability to design and implement a real-world e-commerce application using the Jakarta EE stack. It is a solid portfolio project for Java backend and enterprise web development opportunities.
