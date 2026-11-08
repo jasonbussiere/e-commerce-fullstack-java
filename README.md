@@ -1,8 +1,20 @@
 # E-Commerce Storefront | Java & Jakarta EE
 
-A full-stack e-commerce web application built with Java, Jakarta EE, Maven, and MariaDB. The project simulates a digital storefront for video games, including product browsing, cart management, user authentication, and a multilingual storefront experience.
+A full-stack e-commerce web application built with Java, Jakarta EE, Maven, and MariaDB. The project simulates a digital storefront for video games, including product browsing, cart management, user authentication, and database-backed order flows.
 
-This project was developed to demonstrate backend architecture, database design, and MVC-based web development in a realistic business domain.
+This project was developed as a team-based academic project, and my primary contributions focused on the data layer and application logic that support the storefront experience.
+
+## My Role and Contributions
+
+I was responsible for most of the backend foundation that powers the storefront, especially:
+
+- Database design and schema development using MariaDB
+- Defining entities, relationships, and constraints for users, products, cart data, and related records
+- Building the DAO layer for CRUD operations and database access logic
+- Implementing the service layer to manage business rules, validation, and orchestration between the persistence and controller layers
+- Supporting integration between the persistence layer and the MVC web application flow
+
+This meant my work centered on ensuring the application could reliably store and retrieve data while keeping the business logic clean, maintainable, and aligned with the web layer.
 
 ## Overview
 
@@ -158,6 +170,8 @@ This project is designed as a Java web application that demonstrates practical s
 - CRUD-style persistence for product and customer data
 - building a storefront experience from a relational model
 
+From a portfolio perspective, this project is especially relevant because it highlights my work in the data-access and service layers, which are critical for maintaining real-world application integrity, scalability, and maintainability.
+
 ## Future Improvements
 
 Potential enhancements for a stronger portfolio version include:
@@ -172,4 +186,4 @@ Potential enhancements for a stronger portfolio version include:
 
 ## Summary
 
-This project reflects a strong foundation in Java-based web development and demonstrates the ability to design and implement a real-world e-commerce application using the Jakarta EE stack. It is a solid portfolio project for Java backend and enterprise web development opportunities.
+This project reflects a strong foundation in Java-based web development and demonstrates the ability to design and implement a real-world e-commerce application using the Jakarta EE stack. It is particularly valuable as a portfolio project because it combines backend data modeling, persistence logic, service orchestration, and web-layer integration in a single application.
