@@ -24,7 +24,7 @@ public class CartServlet extends BaseServlet {
         loadCartCount(request);
         User user = (User)request.getSession().getAttribute("loggedInUser");
         if(user == null){
-            response.sendRedirect(request.getContextPath()+"/login");
+            response.sendRedirect(request.getContextPath()+"/cart");
             return;
         }
 
@@ -77,12 +77,37 @@ public class CartServlet extends BaseServlet {
             case "continue":
                 response.sendRedirect(request.getContextPath() + "/videogames");
                 return;
-            case "select":
+            case "select": {
                 String gameId = request.getParameter("gameId");
                 request.setAttribute("gameId", gameId);
                 request.getRequestDispatcher("/WEB-INF/view/PageChoixPlateforme.jsp")
                         .forward(request, response);
                 return;
+            }
+            case "add": {
+                String gameId = request.getParameter("gameId");
+                String selectedPlatform = request.getParameter("plateforme");
+
+                boolean isDuplicate = cartService.IsInCart(user.getUserId(), gameId);
+                if(isDuplicate){
+                    response.sendRedirect(request.getContextPath()+"/videogames?error=duplicate");
+                    return;
+                }
+                cartService.addItem(user.getUserId(), gameId, selectedPlatform);
+                response.sendRedirect("cart?action=view");
+                return;
+            }
+            case "remove": {
+                String cartItemId = request.getParameter("cartItemId");
+                cartService.removeItem(user.getUserId(), cartItemId);
+                response.sendRedirect("cart?action=view");
+                return;
+            }
+            case "checkout": {
+                cartService.clearCart(user.getUserId());
+                response.sendRedirect(request.getContextPath()+"/cart?action=view&success=true");
+                return;
+            }
             case "view":
             default:
                 Cart cart = cartService.loadCart(user.getUserId());
@@ -90,34 +115,5 @@ public class CartServlet extends BaseServlet {
                 request.getRequestDispatcher("/WEB-INF/view/PageCart.jsp")
                         .forward(request, response);
         }
-        /**
-        switch(action){
-            case "add": {
-                String gameId=request.getParameter("gameId");
-                String selectedPlatform=request.getParameter("plateforme");
-
-                boolean isDuplicate = cartService.IsInCart(user.getUserId(), gameId);
-                if(isDuplicate){
-                    response.sendRedirect(request.getContextPath()+"/videogames?error=duplicate");
-                    return;
-                }
-                cartService.addItem(user.getUserId(),gameId, selectedPlatform);
-                response.sendRedirect("cart?action=view");
-                return;
-            }
-            case "remove": {
-                String cartItemId =request.getParameter("cartItemId");
-                cartService.removeItem(user.getUserId(),cartItemId);
-                response.sendRedirect("cart?action=view");
-                return;
-            }
-
-            case "checkout": {
-                cartService.clearCart(user.getUserId());
-                response.sendRedirect(request.getContextPath()+"/cart?action=view&success=true");
-                return;
-            }
-         */
-
-        }
     }
+}
