@@ -24,7 +24,7 @@ public class CartServlet extends BaseServlet {
         loadCartCount(request);
         User user = (User)request.getSession().getAttribute("loggedInUser");
         if(user == null){
-            response.sendRedirect(request.getContextPath()+"/loginPage.jsp");
+            response.sendRedirect(request.getContextPath()+"/login");
             return;
         }
 
@@ -57,17 +57,40 @@ public class CartServlet extends BaseServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        loadCartCount(request);
-        User user = (User)request.getSession().getAttribute("loggedInUser");
+        HttpSession session=request.getSession();
+        User user = (User)session.getAttribute("loggedInUser");
         if(user == null){
-            response.sendRedirect(request.getContextPath()+"/loginPage.jsp");
+            String target = request.getContextPath()+"/cart?action=view";
+            session.setAttribute("afterLogin", target);
+            response.sendRedirect(request.getContextPath()+"/login");
             return;
         }
+
+        loadCartCount(request);
 
         String action=request.getParameter("action");
         if(action==null){
             action="view";
         }
+
+        switch (action) {
+            case "continue":
+                response.sendRedirect(request.getContextPath() + "/videogames");
+                return;
+            case "select":
+                String gameId = request.getParameter("gameId");
+                request.setAttribute("gameId", gameId);
+                request.getRequestDispatcher("/WEB-INF/view/PageChoixPlateforme.jsp")
+                        .forward(request, response);
+                return;
+            case "view":
+            default:
+                Cart cart = cartService.loadCart(user.getUserId());
+                request.setAttribute("cart", cart);
+                request.getRequestDispatcher("/WEB-INF/view/PageCart.jsp")
+                        .forward(request, response);
+        }
+        /**
         switch(action){
             case "add": {
                 String gameId=request.getParameter("gameId");
@@ -94,7 +117,7 @@ public class CartServlet extends BaseServlet {
                 response.sendRedirect(request.getContextPath()+"/cart?action=view&success=true");
                 return;
             }
+         */
 
-            }
         }
     }

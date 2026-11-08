@@ -1,12 +1,9 @@
 package edu.tp.a11.assassinscreedstore.repository;
 
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 /** Gestionnaire de la connexion à la base de données. Encapsule les données de la configuration JDBC
  * fournit la connexion à tous les DAO du système.
@@ -28,7 +25,7 @@ public class Database {
     /**
      *
      */
-    private Properties properties;
+    //private Properties properties;
 
     /**
      * Champs pour les informations de connexion à la base de données
@@ -42,16 +39,36 @@ public class Database {
 
     /**
      * Constructeur privé instancié une seule fois.
-     */
+
     private Database() {
         this.properties = new Properties();
         loadConfig();
         extractConfig();
     }
+     */
+
+    private Database() {
+        this.host=requiredEnv("DB_HOST");
+        this.name=requiredEnv("DB_NAME");
+        this.port=System.getenv().getOrDefault("DB_PORT", "3306");
+        this.username = requiredEnv("DB_USERNAME");
+        this.password = requiredEnv("DB_PASSWORD");
+
+        this.url="jdbc:mariadb://" + host + ":" + port + "/" + name
+                + "?useSSL=false&serverTimezone=UTC";
+    }
+
+    private static String requiredEnv(String name) {
+        String value = System.getenv(name);
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException("Required environment variable " + name + " is not set");
+        }
+        return value;
+    }
 
     /**
      * Méthode de chargement de la configuration de la connexion.
-     */
+
     private void loadConfig() {
         InputStream input = this.getClass().getClassLoader().getResourceAsStream("config.properties");
         if (input==null){
@@ -64,10 +81,11 @@ public class Database {
             throw new RuntimeException("impossible de charger config properties");
         }
     }
+     */
 
     /**
      * Méthode pour extraire les propriétés et les stocker dans les champs pour informations de connexion.
-     */
+
     private void extractConfig() {
         this.host=properties.getProperty("db.host");
         this.name=properties.getProperty("db.name");
@@ -76,6 +94,7 @@ public class Database {
         this.password = properties.getProperty("db.password");
         this.url="jdbc:mariadb://" + host+":"+port+"/"+name+"?useSSL=false&serverTimezone=UTC";
     }
+     */
 
     /**
      * La méthode pour récupérer l'instance de l'objet Database

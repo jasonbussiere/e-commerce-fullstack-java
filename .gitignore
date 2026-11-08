@@ -48,4 +48,12 @@ Thumbs.db
 /temp/
 /logs/
 
+<<<<<<< Updated upstream
 config.properties
+=======
+# Local credentials/configuration
+.env
+.env.*
+!*.example
+src/main/resources/config.properties
+>>>>>>> Stashed changes

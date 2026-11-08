@@ -15,11 +15,13 @@ public class HomeServlet extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /**
         User user = (User) request.getSession().getAttribute("loggedInUser");
         if(user == null) {
             response.sendRedirect("login");
             return;
         }
+         */
         loadCartCount(request);
         request.getRequestDispatcher("/WEB-INF/view/PageAcceuil.jsp").forward(request, response);
     }

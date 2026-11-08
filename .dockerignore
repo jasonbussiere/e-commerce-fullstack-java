@@ -1,0 +1,9 @@
+# Build output and Git metadata
+.git
+**/target
+
+# Local configuration and secrets
+.env
+.env.*
+!*.example
+**/config.properties

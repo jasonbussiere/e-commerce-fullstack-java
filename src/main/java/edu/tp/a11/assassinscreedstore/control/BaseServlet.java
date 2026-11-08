@@ -33,7 +33,7 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected void loadCartCount(HttpServletRequest request) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("loggedInUser");
-        int cartCount = cartService.cartItemCount(user.getUserId());
+        int cartCount = (user==null) ? 0 : cartService.cartItemCount(user.getUserId());
         request.setAttribute("cartCount", cartCount);
     }
 //    //test purpose only

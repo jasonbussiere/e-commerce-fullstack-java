@@ -43,7 +43,15 @@ public class LoginServlet extends BaseServlet {
         }
 
         session.setAttribute("loggedInUser", user);
-        response.sendRedirect("home");
+
+        String target = (String) session.getAttribute("afterLogin");
+        session.removeAttribute("afterLogin");
+
+        if (target != null && !target.isBlank()) {
+            response.sendRedirect(target);
+        } else{
+            response.sendRedirect("/home");
+        }
 
     }
 }

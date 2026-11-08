@@ -104,6 +104,14 @@
         </a>
     </p>
 
+    <p class="ac-nav">
+        <a href="${pageContext.request.contextPath}/videogames">
+            <fmt:bundle basename="app">
+                <fmt:message key="LPGuest"/>
+            </fmt:bundle>
+        </a>
+    </p>
+
     <p class="ac-motto">
         <fmt:bundle basename="app">
             <fmt:message key="LPMotto"/>
