@@ -148,6 +148,13 @@ The schema uses relational constraints, including foreign keys and unique constr
 
 ![Class Diagram](https://github.com/user-attachments/assets/55ca3466-9081-4558-969d-51fc36af1508)
 
+### UI Screenshots
+<img width="1269" height="1260" alt="image" src="https://github.com/user-attachments/assets/0e2013c3-8aa7-4784-a01b-f8c60a597047" />
+<img width="1270" height="1265" alt="image" src="https://github.com/user-attachments/assets/889dec82-80aa-4c31-a028-60778ddd7530" />
+<img width="1258" height="1262" alt="image" src="https://github.com/user-attachments/assets/ca861468-faac-4d5c-849b-97fe7d6d70a3" />
+<img width="1272" height="1264" alt="image" src="https://github.com/user-attachments/assets/ed3da118-345d-4c98-8de7-a9db16fffb98" />
+<img width="1273" height="1267" alt="image" src="https://github.com/user-attachments/assets/85768431-759d-4ee1-80d0-7e3ec1b5c92c" />
+
 ## Manual Build and Deployment
 
 Docker Compose is the recommended way to run the complete application locally. To build the WAR without Docker, use JDK 17+ and run:
