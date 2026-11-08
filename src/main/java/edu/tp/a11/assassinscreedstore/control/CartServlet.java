@@ -24,15 +24,7 @@ public class CartServlet extends BaseServlet {
         loadCartCount(request);
         User user = (User)request.getSession().getAttribute("loggedInUser");
         if(user == null){
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            response.sendRedirect(request.getContextPath()+"/cart");
-=======
             response.sendRedirect(request.getContextPath()+"/login");
->>>>>>> Stashed changes
-=======
-            response.sendRedirect(request.getContextPath()+"/login");
->>>>>>> Stashed changes
             return;
         }
 
