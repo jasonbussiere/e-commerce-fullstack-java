@@ -4,6 +4,8 @@ A full-stack e-commerce web application built with Java, Jakarta EE, Maven, and 
 
 This project was developed as a team-based academic project. My primary contributions focused on the data layer and application logic that support the storefront experience.
 
+> **Demo notice:** Checkout is simulated for demonstration purposes only. No payment is processed and no real order is placed.
+
 ## Run the application with Docker
 
 The fastest way to try the application is Docker Compose. It starts the Java web app and MariaDB, initializes the database schema and sample data, and waits for the database to become healthy before starting the app.
@@ -78,7 +80,7 @@ The project includes a product catalog, shopping cart logic, account creation an
 - Shopping cart management
 - User sign-up and login flow
 - Session-based cart and account state
-- Checkout flow simulation
+- Simulated checkout (no payment processing)
 - MariaDB persistence
 - Multilingual support for interface text
 - Docker Compose local environment with MariaDB and Tomcat
