@@ -49,11 +49,25 @@ Thumbs.db
 /logs/
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 config.properties
 =======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 # Local credentials/configuration
 .env
 .env.*
 !*.example
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+src/main/resources/config.properties
+>>>>>>> Stashed changes
+=======
+src/main/resources/config.properties
+>>>>>>> Stashed changes
+=======
 src/main/resources/config.properties
 >>>>>>> Stashed changes

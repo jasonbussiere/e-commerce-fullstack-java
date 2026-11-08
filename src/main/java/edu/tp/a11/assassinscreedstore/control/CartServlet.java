@@ -24,7 +24,15 @@ public class CartServlet extends BaseServlet {
         loadCartCount(request);
         User user = (User)request.getSession().getAttribute("loggedInUser");
         if(user == null){
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             response.sendRedirect(request.getContextPath()+"/cart");
+=======
+            response.sendRedirect(request.getContextPath()+"/login");
+>>>>>>> Stashed changes
+=======
+            response.sendRedirect(request.getContextPath()+"/login");
+>>>>>>> Stashed changes
             return;
         }
 
@@ -77,13 +85,36 @@ public class CartServlet extends BaseServlet {
             case "continue":
                 response.sendRedirect(request.getContextPath() + "/videogames");
                 return;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             case "select": {
+=======
+            case "select":
+>>>>>>> Stashed changes
+=======
+            case "select":
+>>>>>>> Stashed changes
                 String gameId = request.getParameter("gameId");
                 request.setAttribute("gameId", gameId);
                 request.getRequestDispatcher("/WEB-INF/view/PageChoixPlateforme.jsp")
                         .forward(request, response);
                 return;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             }
+=======
+=======
+>>>>>>> Stashed changes
+            case "view":
+            default:
+                Cart cart = cartService.loadCart(user.getUserId());
+                request.setAttribute("cart", cart);
+                request.getRequestDispatcher("/WEB-INF/view/PageCart.jsp")
+                        .forward(request, response);
+        }
+        /**
+        switch(action){
+>>>>>>> Stashed changes
             case "add": {
                 String gameId = request.getParameter("gameId");
                 String selectedPlatform = request.getParameter("plateforme");
@@ -108,12 +139,22 @@ public class CartServlet extends BaseServlet {
                 response.sendRedirect(request.getContextPath()+"/cart?action=view&success=true");
                 return;
             }
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             case "view":
             default:
                 Cart cart = cartService.loadCart(user.getUserId());
                 request.setAttribute("cart", cart);
                 request.getRequestDispatcher("/WEB-INF/view/PageCart.jsp")
                         .forward(request, response);
+=======
+         */
+
+>>>>>>> Stashed changes
+=======
+         */
+
+>>>>>>> Stashed changes
         }
     }
 }
